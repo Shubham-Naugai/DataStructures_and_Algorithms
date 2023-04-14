@@ -1,4 +1,4 @@
-"""
+/*
 
 Given an array nums containing n distinct numbers in the range [0, n], return the only number in the range that is missing from the array.
 
@@ -28,16 +28,18 @@ n == nums.length
 0 <= nums[i] <= n
 All the numbers of nums are unique.
 
+*/
 
-"""
-
-class Solution:
-    def missingNumber(self, nums: List[int]) -> int:
-        n = len(nums)
-        total = n
-        s = 0
-        for i in range(n):
-            total += i
-            s += nums[i]
-        
-        return total - s
+class Solution {
+public:
+    int missingNumber(vector<int>& nums) {
+        int n = nums.size(); 
+        int total = n; 
+        int s = 0; 
+        for (int i=0; i<n; i++){
+            total = total + i; 
+            s = s + nums[i]; 
+        }
+        return total - s; 
+    }
+};
