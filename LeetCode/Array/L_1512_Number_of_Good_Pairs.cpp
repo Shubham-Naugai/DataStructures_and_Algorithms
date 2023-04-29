@@ -1,5 +1,7 @@
 /*
 
+optimize approach -> https://github.com/ShubhuNaugai/DataStructures_and_Algorithms/blob/main/LeetCode/Hash%20Table/L_1512_Number_of_Good_Pairs.cpp
+
 
 Given an array of integers nums, return the number of good pairs.
 
@@ -33,20 +35,15 @@ Constraints:
 class Solution {
 public:
     int numIdenticalPairs(vector<int>& nums) {
-        unordered_map<int, int>repeat;
-        
-        // number of good pairs
-        int num = 0;
-
-        for(int i=0; i<nums.size(); i++){
-            if (repeat.find(nums[i]) != repeat.end()){
-                num += repeat[nums[i]];
-                repeat[nums[i]] += 1; 
-            }
-            else{
-                repeat[nums[i]] = 1; 
+        int ans = 0; 
+        int n = nums.size();
+        for (int i=0; i<n; i++){
+            for (int j=0; j<n; j++){
+                if (i < j && nums[i] == nums[j]) {
+                    ans = ans + 1; 
+                }
             }
         }
-        return num; 
+        return ans;
     }
 };
