@@ -1,5 +1,8 @@
 """
 
+optimize approach -> https://github.com/ShubhuNaugai/DataStructures_and_Algorithms/blob/main/LeetCode/Hash%20Table/L_1512_Number_of_Good_Pairs.py
+
+
 Given an array of integers nums, return the number of good pairs.
 
 A pair (i, j) is called good if nums[i] == nums[j] and i < j.
@@ -32,16 +35,9 @@ Constraints:
 
 class Solution:
     def numIdenticalPairs(self, nums: List[int]) -> int:
-        repeat = {}
-
-        # number of good pairs
-        num = 0
-        
-        for v in nums:
-            if v in repeat:
-                num += repeat[v]
-                repeat[v] += 1
-            else:
-                repeat[v] = 1
-                
-        return num
+        new_list = []
+        for i in range(len(nums)):
+            for j in range(len(nums)):
+                if i < j and nums[i] == nums[j]:
+                    new_list.append((i, j))
+        return len(new_list)
