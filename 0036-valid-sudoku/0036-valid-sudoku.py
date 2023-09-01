@@ -7,10 +7,6 @@ class Solution:
         # key = pair of square's row index and col index and value = set of values in that square
         squares = collections.defaultdict(set)  # key = (r /3, c /3)
 
-        d = {}
-        d[0] = {'5'}
-        print(d)
-
         for r in range(9):
             for c in range(9):
                 if board[r][c] == ".":
