@@ -22,10 +22,6 @@ public:
             }
             right--;
 
-            if (!(left < right && top < bottom)){
-                break;
-            }
-
             for(int i=right-1; i>=left; i--){
                 res[bottom-1][i] = value;
                 value++;
